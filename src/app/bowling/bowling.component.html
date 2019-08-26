@@ -1,0 +1,35 @@
+<div class="childContainer">
+  <div *ngIf="!stopGame">
+    <div *ngFor="let item of items;let i = index" class="buttonContainer">
+      <button *ngIf="i <= this.visibleButtons" type=”button” (click)="addRolls(item)" class="button button1">
+        {{item}}
+      </button>
+    </div>
+  </div>
+  <div class="over">{{gameStatus}}</div>
+
+  <div class="mainContainer">
+    <div *ngFor="let column of boardColumns; let i = index"
+         [ngClass]="(i === activeFrame)?'activeContainer':'frameContainer'">
+      <div *ngIf="i != 0">
+        <div class="frameHeader">{{column}}</div>
+        <div class="firstRoll">{{currentRollScore[(2 * i) - 2]}}</div>
+        <div class="secondRoll">{{currentRollScore[(2 * i) - 1]}}</div>
+        <span>{{frameScores[i - 1]}}</span>
+      </div>
+      <div *ngIf="i == 0" class="frameHeader">{{column}}</div>
+      <span *ngIf="(i == 0)">player A</span>
+    </div>
+    <div [ngClass]="(activeFrame>9)?'activeContainer':'frameContainer'">
+      <div class="frameHeader">10</div>
+      <div class="lastFrameRollOne">{{currentRollScore[18]}}</div>
+      <div class="lastFrameRollTwo">{{currentRollScore[19]}}</div>
+      <div class="lastFrameRollThree">{{currentRollScore[20]}}</div>
+      <div *ngIf="frameScores.length>9">{{frameScores[frameScores.length - 1]}}</div>
+    </div>
+    <div class="frameContainer">
+      <div class="frameHeader">Total score</div>
+      <div>{{frameScores[frameScores.length - 1]}}</div>
+    </div>
+  </div>
+</div>
