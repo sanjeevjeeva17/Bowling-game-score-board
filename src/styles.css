@@ -8,6 +8,10 @@
 h1{
   margin-left: 30px;
 }
+p{
+  font-family: cursive;
+  font-weight: bold;
+}
 .over {
   font-family: cursive;
   margin-bottom: 30px;

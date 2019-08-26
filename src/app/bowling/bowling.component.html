@@ -1,5 +1,6 @@
 <div class="childContainer">
   <div *ngIf="!stopGame">
+    <P>Please select the number of Pins you smashed!!!!</P>
     <div *ngFor="let item of items;let i = index" class="buttonContainer">
       <button *ngIf="i <= this.visibleButtons" type=”button” (click)="addRolls(item)" class="button button1">
         {{item}}
