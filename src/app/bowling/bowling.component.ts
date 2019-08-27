@@ -38,6 +38,7 @@ export class BowlingComponent implements OnInit {
     if (this.frameFirstRoll(pins)) {
       this.currentRollScore.push('');
       this.currentRollScore.push('X');
+      this.activeFrame++;
     } else if (this.frameSecondRoll(pins)) {
       if (this.currentRollScore[this.currentRollScore.length - 1] + pins === 10) {
         this.currentRollScore.push('/');
