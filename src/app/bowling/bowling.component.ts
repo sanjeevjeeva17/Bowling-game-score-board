@@ -39,7 +39,7 @@ export class BowlingComponent implements OnInit {
       this.currentRollScore.push('');
       this.currentRollScore.push('X');
       this.activeFrame++;
-    } else if (this.frameSecondRoll(pins)) {
+    } else if (this.frameSecondRoll()) {
       if (this.currentRollScore[this.currentRollScore.length - 1] + pins === 10) {
         this.currentRollScore.push('/');
       } else {
@@ -81,8 +81,8 @@ export class BowlingComponent implements OnInit {
 
   /* frameSecondRolls() for checking if there was spare
     *@param number */
-  frameSecondRoll(pins: number) {
-    return this.rollNumber === 1 && pins !== 10;
+  frameSecondRoll() {
+    return this.rollNumber === 1;
   }
 
   /*lastFrameRoll() check to add bonus roll

@@ -1,7 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {BowlingComponent} from './bowling.component';
-import {BowlingService} from './bowling.service';
 
 describe('BowlingComponent', () => {
   let component: BowlingComponent;
@@ -39,6 +38,12 @@ describe('BowlingComponent', () => {
       component.rollNumber = 1;
       component.addRolls(5);
       expect(component.currentRollScore[3]).toBe('/');
+    });
+    it('gutter ball and a strike to make it spare', () => {
+      component.currentRollScore = [0];
+      component.rollNumber = 1;
+      component.addRolls(10);
+      expect(component.currentRollScore[1]).toBe('/');
     });
     it('gutter ball should be zero', () => {
       component.addRolls(0);
